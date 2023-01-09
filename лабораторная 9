@@ -1,0 +1,30 @@
+import random
+import logging
+logging.basicConfig(level=logging.INFO, filename="py_log.log",filemode="a")
+
+
+k = int(input("Введите количество попыток:"))
+logging.info(f"Пользователь ввел: {k}")
+n = int(input("Введите границы для числа:"))
+logging.info(f"Пользователь ввел: {n}")
+
+i = random.randint(1,n)
+logging.info(f"Рандомное число: {i}")
+logging.info("Игра начинается")
+while i != 0:
+    a = int(input("Попытай удачу:"))
+    logging.info(f"Пользователь попытался: {a}")
+    if a > i:
+        print("Слишком много")
+        k -= 1
+    if a < i:
+        print("Слишком мало")
+        k -= 1
+    if a == i:
+        print("Поздравляю, вы угадали!")
+        logging.info("Пользователь выиграл!")
+        break
+    if k == 0:
+        print("Попытки закончились!")
+        logging.info("Пользователь проиграл!")
+        break
